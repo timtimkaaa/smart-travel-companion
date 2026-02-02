@@ -31,11 +31,6 @@ self.addEventListener('activate', (event) => {
     self.clients.claim();
 });
 
-/*
-  IMPORTANT:
-  Do NOT intercept fetch yet.
-  This prevents breaking Vite dev server.
-*/
 
 self.addEventListener('fetch', (event) => {
     const { request } = event;
