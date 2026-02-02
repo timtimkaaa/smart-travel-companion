@@ -37,15 +37,17 @@ export default function Note({ place, note, onDone }) {
         onDone();
     }
 
-    function handlePhotoCapture(e) {
+    async function handlePhotoCapture(e) {
         const file = e.target.files[0];
         if (!file) return;
+
+        const compressed = await compressImage(file);
 
         const reader = new FileReader();
         reader.onload = () => {
             setPhotos(prev => [...prev, reader.result]);
         };
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(compressed);
     }
 
 
@@ -58,6 +60,23 @@ export default function Note({ place, note, onDone }) {
         onDone(); // navigate back to Journal
     }
 
+
+    async function compressImage(file, maxWidth = 1280) {
+        const img = await createImageBitmap(file);
+
+        const scale = Math.min(1, maxWidth / img.width);
+        const canvas = document.createElement('canvas');
+
+        canvas.width = img.width * scale;
+        canvas.height = img.height * scale;
+
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        return new Promise(resolve =>
+            canvas.toBlob(resolve, 'image/jpeg', 0.7)
+        );
+    }
 
     if (!place && !note) {
         return <p>No note selected.</p>;

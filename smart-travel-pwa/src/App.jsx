@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { setupOfflineDetection } from './pwa/offline';
 import OfflineBanner from './components/OfflineBanner.jsx';
-import { getCurrentLocation } from './pwa/geolocation';
+import { getCurrentLocation } from './pwa/geolocation.js';
 import { fetchNearbyPlaces } from './api/overpass';
 import { openDB, savePlaces, getAllPlaces } from './db/indexedDB';
 
