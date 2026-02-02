@@ -212,23 +212,6 @@ Navigation is handled through a tab-based interface and internal state transitio
 
 ---
 
-### Location
-
-```
-src/utils/image.js
-```
-
-### Purpose
-
-* Compress photos before storing them in IndexedDB
-* Reduce file size on mobile devices
-
-### Usage
-
-This feature can be enabled in `Note.jsx` before saving photos, but it is optional and not required for the core functionality.
-
----
-
 ## Hosting & Security
 
 The application is hosted over **HTTPS** using GitHub Pages.
