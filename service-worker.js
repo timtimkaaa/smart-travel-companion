@@ -1,8 +1,10 @@
 const CACHE_NAME = 'app-shell-v2.5'
+const BASE = '/smart-travel-companion';
+
 const APP_SHELL = [
-    '/',
-    '/index.html',
-    '/manifest.json'
+    `${BASE}/`,
+    `${BASE}/index.html`,
+    `${BASE}/manifest.json`
 ];
 
 self.addEventListener('install', (event) => {

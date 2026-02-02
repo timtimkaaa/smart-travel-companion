@@ -1,9 +1,9 @@
 {
-  "name": "Smart Travel Companion",
-  "short_name": "Travel Companion",
+  "name": "Smart Travel Companion – Warsaw",
+  "short_name": "Travel Warsaw",
   "description": "Offline city guide and travel journal for Warsaw",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/smart-travel-companion/",
+  "scope": "/smart-travel-companion/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0a5fff",
